@@ -1,0 +1,14 @@
+.npc-main-content {
+    display: flex;
+    background-color: var(--npc-primary-color);
+    height: calc(100% - 2em);
+    padding: 1em;
+    box-sizing: border-box;
+    margin: 1em;
+    position: relative;
+    border-radius: 15px;
+    justify-content:flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
