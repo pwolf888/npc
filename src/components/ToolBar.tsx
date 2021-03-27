@@ -1,15 +1,20 @@
 
 import {IonButton, IonIcon, IonLabel, IonBadge} from "@ionic/react";
-import { home, personAdd} from 'ionicons/icons';
+import { home, personAdd, toggle} from 'ionicons/icons';
 
-const ToolBar: React.FC = () => {
+interface ContainerProps {
+  generate : boolean
+}
+
+const ToolBar: React.FC<ContainerProps> = ({generate}) => {
+  console.log(generate)
   return (
     <div className="npc-toolbar">
     
       <IonButton>
           <IonIcon icon={home} />
       </IonButton>
-      <IonButton>
+      <IonButton onClick={()=> !generate}>
           <IonIcon icon={personAdd} />
       </IonButton>
     </div>
