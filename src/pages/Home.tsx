@@ -4,18 +4,19 @@ import InstantCharcterGen from '../components/InstantCharGen';
 import ToolBar from '../components/ToolBar';
 import React, {useState} from 'react'
 import './Home.css'
-
+import syllables from "../data/syllables.json"
 const Home : React.FC = () => {
 
     const [generateChar,
         setGenerateChar] = useState < boolean > (false)
 
+       
     return (
         <IonPage>
             <IonContent fullscreen>
                 <div className="npc-main-content">
 
-                    <InstantCharcterGen generate={generateChar}/>
+                    <InstantCharcterGen start={syllables[0].start} middle={syllables[0].middle} end={syllables[0].end} generate={generateChar}/>
                     <div className="npc-toolbar">
                     <IonButton>
                         <IonIcon icon={home}/>

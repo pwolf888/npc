@@ -7,10 +7,9 @@ interface ContainerProps {
 }
 
 const ToolBar: React.FC<ContainerProps> = ({generate}) => {
-  console.log(generate)
+ 
   return (
     <div className="npc-toolbar">
-    
       <IonButton>
           <IonIcon icon={home} />
       </IonButton>
