@@ -15,14 +15,13 @@ import {personCircle} from 'ionicons/icons';
 
 interface ContainerProps {
 
-    generate: boolean,
     start: string[],
     middle: string[]
     end: string[]
-
+    display: string
 }
 
-const InstantCharcterGen : React.FC<ContainerProps> = ({generate,start,middle,end}) => {
+const InstantCharcterGen : React.FC<ContainerProps> = ({start,middle,end, display}) => {
     
     const races : Array < string > = [
         "Dragonborn",
@@ -314,13 +313,20 @@ const InstantCharcterGen : React.FC<ContainerProps> = ({generate,start,middle,en
         "Writer"
         ]
 
-    // String year = credits >  30 ? "freshman" : credits > 59 ? "sophomore" : credits > 89 ? "junior" : "senior";
+    const town: Array<string> = [
+        "Tavern",
+        "Shop",
+        "Forge",
+        "Temple",
+        "Keep"
+    ]
+    
     const randomNumber = (max: number) => {
         return Math.floor(Math.random() * max )
     } 
 
     const genFirstName = () => {
-        const [s,m,e] = [start[randomNumber(10)], middle[randomNumber(10)], end[randomNumber(10)]]
+        const [s,m,e] = [start[randomNumber(start.length)], middle[randomNumber(middle.length)], end[randomNumber(end.length)]]
         
         const r = randomNumber(3)
         const fname = r === 0?  s : r === 1? s + m : r === 2? s + m + e : ""
@@ -347,10 +353,9 @@ const InstantCharcterGen : React.FC<ContainerProps> = ({generate,start,middle,en
     }
 
 
-
-    return (
-
-        <IonGrid className="ion-text-center">
+    const single_npc = () => {
+        return(
+            <IonGrid className="ion-text-center">
             <IonRow>
                 <IonCol size="12">
                     <IonIcon size="large" icon={personCircle}/>
@@ -386,7 +391,69 @@ const InstantCharcterGen : React.FC<ContainerProps> = ({generate,start,middle,en
                 
             </IonRow>
         </IonGrid>
+        )
+    }
 
+    const sm_single_npc = (townArea:string, index:number) => {
+        return(
+            <IonGrid className="ion-text-left npc-bg-outline " key={index}>
+            <IonRow>
+               
+                    
+              
+                <IonCol size="12">
+                <IonText color="success"><h6>{townArea}</h6></IonText>
+                <IonText className="ion-text-capitalize">
+                        <h3>{genFirstName()} {genLastName()}</h3>
+                        
+                    </IonText>
+                </IonCol>
+               
+            <IonCol size="4">
+                    <IonBadge color="success">
+                        <IonLabel>
+                            <h4>{genNature()}</h4>
+                        </IonLabel>
+                    </IonBadge>
+                </IonCol>
+                <IonCol size="4">
+                    <IonBadge color="success">
+                        <IonLabel>
+                            <h4>{genRace()}</h4>
+                        </IonLabel>
+                    </IonBadge>
+                </IonCol>
+                <IonCol size="4">
+                    <IonBadge color="success">
+                        <IonLabel>
+                            <h4>{genJob()}</h4>
+                        </IonLabel>
+                    </IonBadge>
+                </IonCol>
+                
+            </IonRow>
+          
+            
+        </IonGrid>
+        )
+    }
+
+
+    return (
+
+        <>
+           {
+           display === "single" ? single_npc() : display === "sm_single" ? 
+           
+            town.map((area:string, index: number) => {
+               return sm_single_npc(area, index)
+            })
+         
+           
+           : null
+           
+            }
+        </>
     )
 
 };
