@@ -320,6 +320,14 @@ const InstantCharcterGen : React.FC<ContainerProps> = ({start,middle,end, displa
         "Temple",
         "Keep"
     ]
+
+    const boat: Array<string> = [
+        "Captain",
+        "First Mate",
+        "Bosan",
+        "Cook",
+        "Deck Wizard"
+    ]
     
     const randomNumber = (max: number) => {
         return Math.floor(Math.random() * max )
@@ -398,9 +406,6 @@ const InstantCharcterGen : React.FC<ContainerProps> = ({start,middle,end, displa
         return(
             <IonGrid className="ion-text-left npc-bg-outline " key={index}>
             <IonRow>
-               
-                    
-              
                 <IonCol size="12">
                 <IonText color="success"><h6>{townArea}</h6></IonText>
                 <IonText className="ion-text-capitalize">
@@ -443,14 +448,14 @@ const InstantCharcterGen : React.FC<ContainerProps> = ({start,middle,end, displa
 
         <>
            {
-           display === "single" ? single_npc() : display === "sm_single" ? 
+           display === "single" ? single_npc() : display === "town" ? 
            
             town.map((area:string, index: number) => {
-               return sm_single_npc(area, index)
+                return sm_single_npc(area, index)
             })
-         
-           
-           : null
+           : boat.map((area:string, index: number) => {
+                return sm_single_npc(area, index)
+            })
            
             }
         </>

@@ -13,7 +13,7 @@ import React, {useState} from 'react';
 import './Home.css';
 import syllables from "../data/syllables.json";
 
-const Town : React.FC = () => {
+const Boat : React.FC = () => {
 
     const [generateChar,
         setGenerateChar] = useState < boolean > (false)
@@ -29,7 +29,7 @@ const Town : React.FC = () => {
                         </IonButton>
                         <IonButton size="large" fill="clear" color="dark" >
                             <IonText >
-                                <p>Town</p>
+                                <p>Boat</p>
                             </IonText>
                         </IonButton>
                     </div>
@@ -37,7 +37,7 @@ const Town : React.FC = () => {
                         start={syllables[0].start}
                         middle={syllables[0].middle}
                         end={syllables[0].end}
-                        display="town"/>
+                        display="boat"/>
 
                     
                </div>
@@ -47,4 +47,4 @@ const Town : React.FC = () => {
     );
 };
 
-export default Town;
+export default Boat;

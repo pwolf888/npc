@@ -25,7 +25,7 @@ const Home : React.FC = () => {
                             display="single"
                             />
                         <div className="npc-toolbar">
-                            <IonButton size="large" fill="clear" color="dark">
+                            <IonButton size="large" fill="clear" color="dark" href="/Boat">
                                 <IonIcon icon={boat}/>
                             </IonButton>
                             <IonButton size="large" fill="clear" color="dark" href="/Town">
