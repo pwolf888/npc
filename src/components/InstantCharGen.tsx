@@ -404,7 +404,7 @@ const InstantCharcterGen : React.FC<ContainerProps> = ({start,middle,end, displa
 
     const sm_single_npc = (townArea:string, index:number) => {
         return(
-            <IonGrid className="ion-text-left npc-bg-outline " key={index}>
+            
             <IonRow>
                 <IonCol size="12">
                 <IonText color="success"><h6>{townArea}</h6></IonText>
@@ -414,21 +414,21 @@ const InstantCharcterGen : React.FC<ContainerProps> = ({start,middle,end, displa
                     </IonText>
                 </IonCol>
                
-            <IonCol size="4">
+            <IonCol >
                     <IonBadge color="success">
                         <IonLabel>
                             <h4>{genNature()}</h4>
                         </IonLabel>
                     </IonBadge>
                 </IonCol>
-                <IonCol size="4">
+                <IonCol>
                     <IonBadge color="success">
                         <IonLabel>
                             <h4>{genRace()}</h4>
                         </IonLabel>
                     </IonBadge>
                 </IonCol>
-                <IonCol size="4">
+                <IonCol >
                     <IonBadge color="success">
                         <IonLabel>
                             <h4>{genJob()}</h4>
@@ -438,8 +438,7 @@ const InstantCharcterGen : React.FC<ContainerProps> = ({start,middle,end, displa
                 
             </IonRow>
           
-            
-        </IonGrid>
+
         )
     }
 

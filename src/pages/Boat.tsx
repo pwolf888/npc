@@ -4,7 +4,8 @@ import {
     IonPage,
     IonButton,
     IonIcon,
-    IonText
+    IonText,
+    IonGrid
 } from '@ionic/react';
 import {chevronBack} from 'ionicons/icons';
 import InstantCharcterGen from '../components/InstantCharGen';
@@ -33,13 +34,14 @@ const Boat : React.FC = () => {
                             </IonText>
                         </IonButton>
                     </div>
+                    <IonGrid>
                     <InstantCharcterGen 
                         start={syllables[0].start}
                         middle={syllables[0].middle}
                         end={syllables[0].end}
                         display="boat"/>
 
-                    
+                    </IonGrid>
                </div>
 
             </IonContent>
